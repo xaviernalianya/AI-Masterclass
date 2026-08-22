@@ -22,5 +22,5 @@ weight= 84
 height= 1.74
 bmi= calculate_bmi(weight, height)
 print(f"BMI: {bmi}")
-print(f"Category: {bmi_category(bmi)}")
+print(f"Category: {bmi_category(bmi)}") 
 
