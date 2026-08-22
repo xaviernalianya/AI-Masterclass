@@ -44,7 +44,7 @@ print("Contact book has", len(contacts_book), "contacts")
 
 #Step 2
 #Loop through the list and print each contact with a readable layout
-print("----------CONTACT BOOK----------")
+print("---------CONTACT BOOK----------")
 for contact in contacts_book:
     print(f"Name: {contact['name']}")
     print(f"Phone: {contact['phone']}")
@@ -55,7 +55,7 @@ for contact in contacts_book:
 
 #Step 3
 #Search by name and print the result.
-search_name = "XAVIER Omondi"
+search_name = " Omondi"
 for contact in contacts_book:
     if contact["name"] == search_name:
         print(f"Contact found: {contact['name']}")
