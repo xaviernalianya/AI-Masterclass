@@ -39,14 +39,21 @@ except TypeError as e:
 # If protocol is missing, use "Unknown". Print a clean report for each valid entry.
 
 
-def safe_log_entry(data):[
-    {"steps":5000, "water": 8, "protocol":"OMAD"},
-    {"steps":5000, "water": 8, "protocol":"OMAD"},
-    {"steps":5000, "water": 8, "protocol":"OMAD"},
+def safe_log_entry(data):
+    try:
+        steps = int(data["steps"])
+    except (ValueError, TypeError, KeyError):
+        print("Invalid steps data. Skipping entry")
+        return None
+    water = data.get("water", 0)
+    protocol = data.get("protocol", "Unknown")
+    print(f"Steps: {steps}|{water} glasses |Protocol:{protocol}")
+    return steps
+entries=[
+    {"steps":5000, "water": 9, "protocol":"OMAD"},
+    {"steps":344, "water": 8, "protocol":"OMAD"},
+    {"steps":"ninety", "water": 8, "protocol":"OMAD"},
     ]
-try:
-   steps= int(data["steps"])
-except(ValueError, TypeError, KeyError):
-    print("Invalid steps data. Skipping entry")
-    return None
-                      
+results=[safe_log_entry(e) for e in entries]
+valid=[r for r in results if r  is not None]
+print(f"\n Valid Entries: {len(valid)}")
