@@ -68,3 +68,21 @@ for r in responses:
         print(f"Parsed OK: {data['steps']} steps")
     except json.JSONDecodeError:
         print(f"Invalid JSON: {r[:30]}...")
+
+        #Exercise
+#Create a Python dictionary called week_report that contains your name, 
+# a list of 5 daily step counts, and
+#  the fasting protocols used each day. 
+# Convert it to a JSON string and print it.
+#  Then load it back and compute the average steps from the list inside the JSON.
+
+weekly_report={
+    "name":"Xavier",
+    "steps":[8000,9000,10000,10500,9400],
+    "protocol":["OMAD","2OMAD","OMAD","Autopagy","OMAD"]
+    }
+json_string=json.dumps(weekly_report, indent=2)
+print("JSON String",json_string)
+loaded_data=json.loads(json_string)
+avg=sum(loaded_data["steps"])/len(loaded_data["steps"])
+print(f"\n Average steps:{loaded_data["name"]}: {avg}")
