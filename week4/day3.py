@@ -77,7 +77,7 @@ for r in responses:
 #  Then load it back and compute the average steps from the list inside the JSON.
 
 weekly_report={
-    "name":"Xavier",
+    "name":"Xavier Nalianya",
     "steps":[8000,9000,10000,10500,9400],
     "protocol":["OMAD","2OMAD","OMAD","Autopagy","OMAD"]
     }
