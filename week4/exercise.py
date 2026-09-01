@@ -10,4 +10,4 @@ def dairy_log(volume):
     except:
         return "Invalid entry: two hundred is not a number"
 
-print(dairy_log("two hundred"))
+print(dairy_log("two hundred "))
