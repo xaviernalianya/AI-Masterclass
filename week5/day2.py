@@ -96,7 +96,7 @@ x_response = {
 post    = x_response["data"]
 author  = x_response["includes"]["users"][0]
 metrics = post["public_metrics"]
-
+engagement_rate= ((metrics['like_count']+metrics['retweet_count']+metrics['reply_count'])/(author['public_metrics']['followers_count']))*100
 print("POST")
 print(f"  Author:    @{author['username']} ({author['name']})")
 print(f"  Text:      {post['text'][:60]}...")
@@ -107,6 +107,6 @@ print(f"  Likes:     {metrics['like_count']:,}")
 print(f"  Retweets:  {metrics['retweet_count']:,}")
 print(f"  Replies:   {metrics['reply_count']:,}")
 print(f"  Bookmarks: {metrics['bookmark_count']:,}")
-print()
+print(f" Engagement Rate: {engagement_rate:.2f}%")
 print(f"AUTHOR: @{author['username']} has {author['public_metrics']['followers_count']:,} followers")
 print(f"Read more at: https://x.com/{author['username']}")
