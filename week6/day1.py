@@ -1,4 +1,4 @@
-
+#Working with DataFrames in Pandas
 import pandas as pd
 
 data = {
@@ -27,6 +27,9 @@ print(df.iloc[-1])
 
 print("Statistics for all numeric columns:")
 print(df.describe())
+
+
+#importing CSV file
 df2=pd.read_csv("SME Inspection.csv")
 print(df2.head())
 print(df2.describe())
