@@ -18,3 +18,11 @@ df["steps_hit"]= df["steps"] >= 10000
 df["steps_goal"]=df["steps"]-10000
 df["hydration"] = df["water_glasses"].apply(lambda x: "Good" if x >= 8 else "Low")
 print(df)
+#rename
+df=df.rename (columns={"city":"Town"})
+#drop
+df=df.drop(columns=["steps_goal"])
+print(df)
+#sort
+sort=df.sort_values("steps",ascending=False).reset_index(drop=True)
+print(sort)
