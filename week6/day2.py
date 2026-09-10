@@ -25,4 +25,8 @@ df=df.drop(columns=["steps_goal"])
 print(df)
 #sort
 sort=df.sort_values("steps",ascending=False).reset_index(drop=True)
-print(sort)
+sort.index = sort.index + 1  # 1-based ranking
+
+print("Step leaderboard:")
+for i, row in sort.iterrows():
+    print(f"  #{i}  {row['name']:<20} {row['steps']:,} steps")
