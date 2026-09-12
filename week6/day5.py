@@ -28,3 +28,20 @@ print(df.head(10))
 print(f"Shape: {df.shape}")
 print(f"Data types:\n{df.dtypes}")
 print(f"Missing Values: {df.isna().sum().sum()}")
+
+#Step 2: Filter and Analyze
+#Filter for high-performance days. Group by protocol. Compute key statistics.
+# High-performance days: 10k+ steps AND 7.5+ hours sleep
+high_perf=df[(df["steps"]>=10000) & (df["sleep_hr"]>=7.5)]
+print(f"High-performance days:\n{high_perf}")
+print(f"Number of high-performance days: {len(high_perf)}/28")
+
+#protocol comparison
+df_group=df.groupby("protocol").agg(
+    steps_mean=("steps", "mean"),
+    sleep_hr_mean=("sleep_hr", "mean"),
+    water_mean=("water", "mean"),
+    days=("day", "count"),
+).round(1)
+print(f"\n Protocol Stats: {df_group}")
+
