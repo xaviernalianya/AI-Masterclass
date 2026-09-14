@@ -45,3 +45,12 @@ df_group=df.groupby("protocol").agg(
 ).round(1)
 print(f"\n Protocol Stats: {df_group}")
 
+#Step 3
+#Use NumPy for deeper statistical analysis and to identify trends across the 28 days.
+steps_array = np.array(df["steps"])
+bench=np.array(df["bench_kg"])
+print("="*60)
+print("SMP 28 DAY ANALYSIS REPORT")
+print("="*60)
+print("Overall Statistics")
+print(f"Days tracked:{len(df)}")
