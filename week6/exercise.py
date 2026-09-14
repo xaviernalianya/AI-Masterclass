@@ -40,7 +40,7 @@ patients = [
 ]
 df = pd.DataFrame(patients)
 hypertension=df["bp"]>= 140
-diabetes=df["glucose"]>=126
+diabetes=df["glucose"]>=120
 kidney=df["creatinine"]>=1.2
 print(f"Hypertension risk: {hypertension.sum()}")
 print(f"Diabetes risk: {diabetes.sum()}")
