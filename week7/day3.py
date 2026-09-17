@@ -43,3 +43,15 @@ for inputs, proba in zip(new_days, probas):
     confidence = max(proba) * 100
     print(f"  sleep={inputs[0]}h water={int(inputs[1])} bench={int(inputs[2])}kg")
     print(f"    => {label}  (confidence: {confidence:.0f}%)")
+
+#Saving and Loading a Model
+import joblib
+# Save the model to a file  
+joblib.dump(clf, "rf_model.pkl")
+# Load the model from the file
+loaded_model = joblib.load("rf_model.pkl")
+print("\nLoaded model predictions:")
+loaded_preds = loaded_model.predict(new_days)
+for inputs, pred in zip(new_days, loaded_preds):
+    label = "Goal hit" if pred == 1 else "Below goal"
+    print(f"  sleep={inputs[0]}h water={int(inputs[1])} bench={int(inputs[2])}kg => {label}")
