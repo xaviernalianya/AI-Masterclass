@@ -32,3 +32,14 @@ print("\nBatch predictions:")
 for inputs, pred in zip(new_days, preds):
     label = "Goal hit" if pred == 1 else "Below goal"
     print(f"  sleep={inputs[0]}h water={int(inputs[1])} bench={int(inputs[2])}kg => {label}")
+
+
+#Probability Scores
+probas = clf.predict_proba(new_days)
+print("Prediction with confidence:")
+for inputs, proba in zip(new_days, probas):
+    prob_hit = proba[1]  # probability of class 1 (hit goal)
+    label = "Goal hit" if prob_hit >= 0.5 else "Below goal"
+    confidence = max(proba) * 100
+    print(f"  sleep={inputs[0]}h water={int(inputs[1])} bench={int(inputs[2])}kg")
+    print(f"    => {label}  (confidence: {confidence:.0f}%)")
