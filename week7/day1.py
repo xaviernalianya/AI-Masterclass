@@ -94,4 +94,4 @@ labels = {1: "Goal hit", 0: "Below goal"}
 print("\nPredictions for new days:")
 for inputs, pred in zip(new_days, preds):
     print(f"  Sleep={inputs[0]}h, Water={int(inputs[1])}g => {labels[pred]}")
-    
+
