@@ -1,0 +1,10 @@
+const name="Xavier Nalianya";
+const age= 20;
+const location= "Nairobi, Kenya";
+const isStudent= true;
+const skills= ["JavaScript", "Python", "Machine Learning", "Data Analysis"];
+console.log(`Name: ${name}`);
+console.log(`Age: ${age}`);
+console.log(`Location: ${location}`);
+console.log(`Is Student: ${isStudent}`);
+console.log(`Skills: ${skills.join(", ")}`);
