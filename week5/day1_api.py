@@ -1,8 +1,8 @@
 import requests
 
-url = "https://restcountries.com/v3.1/name/kenya"
+url = "https://restcountries.com/v5/name/kenya?fields=name,capital,population,currencies"
 
 response = requests.get(url)
 
-print("Status code:", response.status_code)
-print("Data received:", response.json())
+data= response.json()
+print(data)
